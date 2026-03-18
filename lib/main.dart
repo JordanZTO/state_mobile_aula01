@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:provider/provider.dart' as provider;
 
 import 'presentation/pages/home_page.dart';
-import 'state/provider/counter_provider.dart';
+import 'state/provider/products_provider.dart';
 
 void main() {
   runApp(
-    ProviderScope(
-      child: provider.ChangeNotifierProvider(
-        create: (_) => CounterProvider(),
-        child: const MyApp(),
-      ),
+    provider.ChangeNotifierProvider(
+      create: (_) => ProductsProvider(),
+      child: const MyApp(),
     ),
   );
 }
