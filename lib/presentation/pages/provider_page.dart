@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../state/provider/products_provider.dart';
+import 'product_detail_page.dart';
 
 class ProviderPage extends StatelessWidget {
   const ProviderPage({super.key});
@@ -37,6 +38,16 @@ class ProviderPage extends StatelessWidget {
                 return Card(
                   margin: const EdgeInsets.all(8),
                   child: ListTile(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailPage(
+                            product: product,
+                            productIndex: index,
+                          ),
+                        ),
+                      );
+                    },
                     title: Text(product.name),
                     subtitle: Text('R\$ ${product.price.toStringAsFixed(2)}'),
                     trailing: IconButton(
